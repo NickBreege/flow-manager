@@ -1,0 +1,17 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="202610182103-create-file-conversion-1" author="braginnikolai">
+        <sql>
+            CREATE TABLE file_conversions
+            (
+                id                  BIGSERIAL PRIMARY KEY,
+                original_file_path  VARCHAR(500) NOT NULL,
+                converted_file_path VARCHAR(500),
+                status              VARCHAR(20)  NOT NULL
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>
