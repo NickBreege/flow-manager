@@ -1,0 +1,17 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="202610232021-create-shedlock-1" author="braginnikolai">
+        <sql>
+            CREATE TABLE shedlock
+            (
+                name       VARCHAR(64)  NOT NULL PRIMARY KEY,
+                lock_until TIMESTAMP    NOT NULL,
+                locked_at  TIMESTAMP    NOT NULL,
+                locked_by  VARCHAR(255) NOT NULL
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>

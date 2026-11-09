@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/202610182103-create-file-conversion.xml
+
+  - include:
+      file: db/changelog/202610231931-create-outbox.xml
+
+  - include:
+      file: db/changelog/202610232021-create-shedlock.xml
+
+  - include:
+      file: db/changelog/202610232051-create-inbox.xml
+
+  - include:
+      file: db/changelog/202610292014-create-file-conversion-event-id.xml
