@@ -1,0 +1,23 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="202610292015-create-file-conversion-event-id" author="braginnikolai">
+        <sql>
+            ALTER TABLE file_conversions
+                ADD COLUMN event_id UUID;
+
+            UPDATE file_conversions
+            SET event_id = gen_random_uuid()
+            WHERE event_id IS NULL;
+
+            ALTER TABLE file_conversions
+                ALTER COLUMN event_id SET NOT NULL;
+
+            ALTER TABLE file_conversions
+                ADD CONSTRAINT uk_file_conversions_event_id UNIQUE (event_id);
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,20 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="202610231931-create-outbox-1" author="braginnikolai">
+        <sql>
+            CREATE TABLE outbox
+            (
+                id           BIGSERIAL PRIMARY KEY,
+                event_id     UUID         NOT NULL UNIQUE,
+                event_type   VARCHAR(100) NOT NULL,
+                payload      TEXT         NOT NULL,
+                status       VARCHAR(30)  NOT NULL,
+                created_at   TIMESTAMP    NOT NULL,
+                published_at TIMESTAMP
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>
