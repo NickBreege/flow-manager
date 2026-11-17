@@ -1,3 +1,6 @@
+server:
+  port: 8081
+
 spring:
   application:
     name: flowmanager
@@ -57,12 +60,11 @@ app:
     bucket: converter-files
 
 eureka:
+  instance:
+    hostname: localhost
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-
-server:
-  port: 8081
 
 logging:
   level:
@@ -71,4 +73,3 @@ logging:
         boot:
           context:
             config: DEBUG
-
